@@ -1,0 +1,44 @@
+.reviews-masonry {
+  columns: 3 280px;
+  column-gap: 1.5rem;
+}
+.review-full {
+  break-inside: avoid;
+  margin: 0 0 1.5rem;
+  display: inline-block;
+  width: 100%;
+}
+.review-full__stars {
+  color: #f5b301;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.review-full p {
+  font-size: 1.03rem;
+}
+.review-full footer {
+  font-size: 0.9rem;
+}
+
+.alumni-card {
+  text-align: center;
+}
+.alumni-card__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  margin: 0 auto 0.6rem;
+}
+.alumni-card .pill {
+  margin-bottom: 0.5rem;
+}
+.alumni-card__now {
+  font-family: var(--font-head);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}

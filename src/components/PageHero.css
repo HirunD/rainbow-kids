@@ -1,0 +1,37 @@
+.page-hero {
+  position: relative;
+  padding-top: clamp(2.5rem, 7vw, 4.5rem);
+  text-align: center;
+}
+.page-hero--pink {
+  background: linear-gradient(180deg, var(--pink-soft), var(--c-bg));
+}
+.page-hero--mint {
+  background: linear-gradient(180deg, var(--mint-soft), var(--c-bg));
+}
+.page-hero--sky {
+  background: linear-gradient(180deg, var(--sky-soft), var(--c-bg));
+}
+.page-hero--lav {
+  background: linear-gradient(180deg, var(--lavender-soft), var(--c-bg));
+}
+.page-hero--sun {
+  background: linear-gradient(180deg, #fff3d6, var(--c-bg));
+}
+
+.page-hero__inner {
+  max-width: 720px;
+  padding-bottom: clamp(2.5rem, 7vw, 4rem);
+}
+.page-hero__emoji {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  margin-bottom: 0.5rem;
+}
+.page-hero__lead {
+  font-size: 1.15rem;
+  color: var(--c-ink-soft);
+  margin: 0.5rem auto 0;
+}
+.page-hero .eyebrow {
+  margin-bottom: 0.75rem;
+}

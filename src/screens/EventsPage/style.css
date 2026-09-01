@@ -1,0 +1,75 @@
+/* .chip styles live in index.css (shared with the gallery) */
+.events-filter {
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.events-h {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.events-month {
+  margin-bottom: 1.5rem;
+}
+.events-month__label {
+  font-size: 1rem;
+  color: var(--c-primary);
+  border-bottom: 2px dashed var(--c-line);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.events-list {
+  display: grid;
+  gap: 1rem;
+}
+.event-row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 1.25rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+.event-row__badge {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius);
+}
+.event-row__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+}
+.event-row h4 {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+}
+.event-row p {
+  margin: 0;
+}
+
+.event-past__media {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+}
+.event-past h4 {
+  margin: 0.4rem 0 0.3rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 520px) {
+  .event-row {
+    grid-template-columns: 1fr;
+  }
+  .event-row__badge {
+    width: 100%;
+    height: 120px;
+  }
+}

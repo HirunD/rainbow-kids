@@ -1,0 +1,400 @@
+@import "animate.css";
+
+/* ==========================================================================
+   Rainbow Kids Montessori — design system
+   Pastel, playful, child-centred. Everything is driven by tokens below so
+   the palette and spacing can be re-skinned in one place.
+   ========================================================================== */
+
+:root {
+  /* Pastel palette (pulled from the school's Instagram feel) */
+  --pink: #ffb5c7;
+  --pink-soft: #ffe1e9;
+  --peach: #ffd4b3;
+  --yellow: #ffe6a0;
+  --mint: #b9e6c9;
+  --mint-soft: #e2f5e9;
+  --sky: #a9dbf2;
+  --sky-soft: #e2f2fb;
+  --lavender: #d8c8f2;
+  --lavender-soft: #efe8fb;
+  --coral: #ff9e80;
+
+  /* Semantic */
+  --c-bg: #fffdf8;
+  --c-surface: #ffffff;
+  --c-ink: #3a3a4a;
+  --c-ink-soft: #6b6b7b;
+  --c-line: #f0e9df;
+
+  --c-primary: #c9468a;        /* berry — used for primary buttons/links, AA on white */
+  --c-primary-deep: #a5306e;
+  --c-primary-tint: #fbe6f1;
+
+  /* Type */
+  --font-head: "Fredoka", "Trebuchet MS", sans-serif;
+  --font-body: "Nunito", "Segoe UI", system-ui, sans-serif;
+
+  /* Shape & depth */
+  --radius: 18px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 4px 14px rgba(58, 58, 74, 0.08);
+  --shadow-md: 0 14px 40px rgba(58, 58, 74, 0.12);
+  --shadow-lg: 0 24px 60px rgba(58, 58, 74, 0.16);
+
+  /* Layout */
+  --wrap: 1140px;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --section-y: clamp(3.5rem, 8vw, 6rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--c-ink);
+  background: var(--c-bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--c-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--c-ink);
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+}
+h2 {
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+}
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-primary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Layout helpers
+   -------------------------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--tint-pink {
+  background: var(--pink-soft);
+}
+.section--tint-mint {
+  background: var(--mint-soft);
+}
+.section--tint-sky {
+  background: var(--sky-soft);
+}
+.section--tint-lav {
+  background: var(--lavender-soft);
+}
+.section--tint-cream {
+  background: #fff8ec;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(2rem, 5vw, 3.25rem);
+}
+.section-head p {
+  color: var(--c-ink-soft);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--c-primary);
+  background: var(--c-primary-tint);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.75rem);
+}
+.grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.grid--4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+  --btn-bg: var(--c-primary);
+  --btn-fg: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--c-primary);
+  border-color: var(--c-primary);
+  box-shadow: none;
+}
+.btn--ghost:hover {
+  --btn-bg: var(--c-primary-tint);
+}
+.btn--sunny {
+  --btn-bg: var(--yellow);
+  --btn-fg: var(--c-ink);
+}
+.btn--wa {
+  --btn-bg: #25d366;
+  --btn-fg: #08331b;
+}
+.btn--lg {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Cards & pills
+   -------------------------------------------------------------------------- */
+.card {
+  background: var(--c-surface);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.4rem, 3vw, 2rem);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--c-line);
+  height: 100%;
+}
+.card--flat {
+  box-shadow: none;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: var(--sky-soft);
+  color: var(--c-ink);
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Filter chips (events, gallery) */
+.chip {
+  border: 1px solid var(--c-line);
+  background: var(--c-surface);
+  color: var(--c-ink);
+  font-family: var(--font-head);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.chip:hover {
+  transform: translateY(-1px);
+}
+.chip--on {
+  background: var(--c-primary);
+  color: #fff;
+  border-color: var(--c-primary);
+}
+
+/* Emoji badge used across feature cards */
+.badge {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  border-radius: 20px;
+  background: var(--lavender-soft);
+  margin-bottom: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Decorative wave divider
+   -------------------------------------------------------------------------- */
+.wave {
+  display: block;
+  width: 100%;
+  height: clamp(40px, 6vw, 90px);
+}
+
+/* --------------------------------------------------------------------------
+   Image / media placeholders (swap for real photos — see QUESTIONNAIRE.md)
+   -------------------------------------------------------------------------- */
+.ph {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--sky) 0%, var(--lavender) 50%, var(--pink) 100%);
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.ph::after {
+  content: "📷 placeholder";
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.7rem;
+  font-size: 0.7rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+}
+.ph--pink {
+  background: linear-gradient(135deg, var(--pink), var(--peach));
+}
+.ph--mint {
+  background: linear-gradient(135deg, var(--mint), var(--sky));
+}
+.ph--sun {
+  background: linear-gradient(135deg, var(--yellow), var(--coral));
+}
+.ph--lav {
+  background: linear-gradient(135deg, var(--lavender), var(--sky));
+}
+.ph--reel {
+  aspect-ratio: 9 / 16;
+}
+.ph__emoji {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+}
+
+/* --------------------------------------------------------------------------
+   Utility
+   -------------------------------------------------------------------------- */
+.stack-sm > * + * {
+  margin-top: 0.5rem;
+}
+.mt-0 {
+  margin-top: 0;
+}
+.muted {
+  color: var(--c-ink-soft);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
