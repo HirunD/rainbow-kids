@@ -7,7 +7,7 @@ export const leadership = [
     name: "Mrs. Anjali Rathnayake",
     role: "Founder & Principal",
     emoji: "🌟",
-    bio: "Opened Rainbow Kids in 2001 after AMI primary training in Chennai. Still teaches one small-group lesson every morning.",
+    bio: "Opened Rainbow Kids in 2002 after AMI primary training in Chennai. Still teaches one small-group lesson every morning.",
   },
   {
     name: "Mr. David Owens",

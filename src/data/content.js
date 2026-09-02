@@ -49,7 +49,7 @@ export const values = [
 
 /* ---- History timeline -------------------------------------------------------- */
 export const timeline = [
-  { year: "2001", title: "Rainbow Kids opens", text: "One classroom, twelve children, and a borrowed set of Montessori materials. DUMMY — confirm founding story." },
+  { year: "2002", title: "Rainbow Kids opens", text: "One classroom, twelve children, and a borrowed set of Montessori materials, opening 18 February. DUMMY — confirm founding story." },
   { year: "2007", title: "Second casa & AMI faculty", text: "The school commits fully to AMI-trained guides and opens a second Children's House." },
   { year: "2013", title: "The garden classroom", text: "An outdoor programme is added — vegetable beds, a mud kitchen and weekly farm visits." },
   { year: "2016", title: "International volunteer programme", text: "Formal hosting of overseas Montessori volunteers begins, adding languages and music year-round." },

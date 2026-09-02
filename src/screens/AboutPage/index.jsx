@@ -68,7 +68,7 @@ const AboutPage = () => (
           <span className="eyebrow">Principal's message</span>
           <h2>“We are not in a hurry, and neither is your child.”</h2>
           <p>
-            When I opened Rainbow Kids in 2001, I wanted one thing: a room where a child could become
+            When I opened Rainbow Kids in 2002, I wanted one thing: a room where a child could become
             absorbed in something and not be interrupted. Everything since — the AMI faculty, the garden,
             the {""}
             <strong>7:1 ratio</strong> — has been in service of protecting that quiet.

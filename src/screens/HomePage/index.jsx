@@ -12,6 +12,12 @@ import { parentReviews } from "../../data/reviews";
 import { formatShortDate, formatDate, isUpcoming } from "../../lib/format";
 import "./style.css";
 
+// Evaluated once at load — the countdown doesn't need to tick within a session.
+const daysToAnniversary = Math.max(
+  0,
+  Math.ceil((new Date(site.anniversaryISO).getTime() - new Date().getTime()) / 86_400_000)
+);
+
 const HomePage = () => {
   const upcoming = events.filter((e) => isUpcoming(e.date)).slice(0, 3);
   const latestPosts = [...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 2);
@@ -20,51 +26,68 @@ const HomePage = () => {
     <>
       <Seo
         title=""
-        description="Rainbow Kids Montessori — an AMI Montessori preschool in Sri Lanka with 25 years of experience, a 7:1 child-to-teacher ratio and a holistic education philosophy."
+        description="Rainbow Kids Montessori — an AMI Montessori preschool in Sri Lanka with 25 years of experience, a ~7:1 child-to-teacher ratio and a holistic approach that takes learning beyond the classroom."
         path="/"
       />
 
       {/* ---------- Hero ---------- */}
       <section className="hero">
-        <span className="hero__blob hero__blob--1" aria-hidden="true" />
-        <span className="hero__blob hero__blob--2" aria-hidden="true" />
-        <span className="hero__blob hero__blob--3" aria-hidden="true" />
-
         <div className="wrap hero__inner">
-          <div className="hero__copy" data-aos="fade-right">
-            <span className="eyebrow">Est. {site.established} · {site.yearsBadge} years</span>
+          <div className="hero__copy" data-aos="fade-up">
+            <span className="hero__ribbon">
+              <span aria-hidden="true">🌈</span> Celebrating 25 years · {site.established}–2027
+            </span>
             <h1>
-              A gentle, <span className="hl hl--pink">un-rushed</span> start to school
+              25 years of growing <span className="hero__accent">curious minds</span>
             </h1>
             <p className="hero__lead">
-              Rainbow Kids is an <strong>AMI Montessori</strong> preschool wrapped in a wider circle of
-              holistic education — garden, music, mindfulness and kindness. With a{" "}
-              <strong>{site.ratio} child-to-teacher ratio</strong>, one of the highest in the world, every
-              child is genuinely known.
+              An <strong>AMI Montessori</strong> education, enriched by real-world experiences that help
+              children explore, understand and connect with the world around them.
             </p>
             <div className="hero__actions">
-              <Link to="/contact#enquire" className="btn btn--lg">
-                Enquire about a place
-              </Link>
-              <Link to="/curriculum" className="btn btn--ghost btn--lg">
-                How we teach
+              <a href={site.whatsappHref} target="_blank" rel="noreferrer" className="btn btn--wa btn--lg">
+                💬 Enquire on WhatsApp
+              </a>
+              <Link to="/about" className="btn btn--ghost btn--lg">
+                Explore Rainbow Kids
               </Link>
             </div>
-            <p className="hero__note muted">
-              📞 {site.phone} &nbsp;·&nbsp; 💬 WhatsApp {site.whatsapp}
+            <p className="hero__phone muted">
+              Prefer to call? <a href={site.phoneHref}>{site.phone}</a> · {site.hours}
             </p>
           </div>
 
-          <div className="hero__collage" data-aos="fade-left">
-            <span className="hero__sticker" aria-hidden="true">
-              25<small>years</small>
-            </span>
-            <Placeholder emoji="🎨" label="Art shelf" tint="ph--pink" />
-            <Placeholder emoji="🌻" label="Garden classroom" tint="ph--mint" />
-            <Placeholder emoji="📚" label="Work cycle" tint="ph--sun" />
-            <Placeholder emoji="🧩" label="Sensorial work" tint="ph--lav" />
+          <div className="hero__media" data-aos="fade-up" data-aos-delay="120">
+            <div className="hero__photo hero__photo--main">
+              <Placeholder emoji="🧒" label="A child, deep in concentration" tint="ph--pink" />
+            </div>
+            <div className="hero__photo hero__photo--sub">
+              <Placeholder emoji="🌱" label="Learning in the garden" tint="ph--mint" />
+            </div>
+            <span className="hero__media-chip">Real Rainbow Kids photography — coming soon</span>
           </div>
         </div>
+
+        {/* Two audiences, two clear paths (see brief §02) */}
+        <div className="wrap hero__paths">
+          <Link to="/contact#enquire" className="hero__path">
+            <span className="hero__path-icon" aria-hidden="true">👪</span>
+            <span>
+              <strong>Considering Rainbow Kids for your child?</strong>
+              <br />
+              Book a visit or ask us anything →
+            </span>
+          </Link>
+          <Link to="/get-involved" className="hero__path">
+            <span className="hero__path-icon" aria-hidden="true">🌏</span>
+            <span>
+              <strong>Hoping to volunteer or teach with us?</strong>
+              <br />
+              See how to join the community →
+            </span>
+          </Link>
+        </div>
+
         <Wave color="var(--c-bg)" />
       </section>
 
@@ -73,24 +96,53 @@ const HomePage = () => {
         <StatStrip />
       </div>
 
-      {/* ---------- Welcome ---------- */}
+      {/* ---------- 25th anniversary ---------- */}
+      <section className="anniv">
+        <div className="wrap anniv__inner" data-aos="fade-up">
+          <div>
+            <strong>25 Years. Thousands of little stories.</strong>
+            <span className="muted">
+              {" "}
+              Our 25th anniversary — {site.anniversaryLabel}
+              {daysToAnniversary > 0 ? ` · ${daysToAnniversary} days to go` : ""}
+            </span>
+          </div>
+          <Link to="/about#story" className="btn btn--ghost">
+            The Rainbow Kids story
+          </Link>
+        </div>
+      </section>
+
+      {/* ---------- Why Rainbow Kids ---------- */}
       <section className="section">
         <div className="wrap home-welcome">
           <div data-aos="fade-up">
-            <span className="eyebrow">Welcome</span>
-            <h2>Montessori, plus a whole childhood</h2>
+            <span className="eyebrow">Why Rainbow Kids</span>
+            <h2>Montessori at the foundation. The world as the classroom.</h2>
             <p>
-              For 25 years, families in our community have trusted us with their children's first years
-              away from home. We hold to the Montessori method as Dr Montessori designed it — but we also
-              believe a four-year-old needs mud, songs, quiet, friendship and a proper lunch.
+              The AMI Montessori method is our educational foundation. But children's learning does not
+              stop at the classroom door — it continues through themes, nature, animals, arts, music,
+              movement, culture, celebrations and community experiences.
             </p>
             <p>
-              That combination — <strong>Montessori plus holistic education</strong> — is what a morning
-              here actually feels like.
+              These are not add-ons. They are how a young child comes to{" "}
+              <strong>understand and experience the world around them</strong>.
             </p>
-            <Link to="/about" className="btn btn--ghost">
-              Our story
-            </Link>
+            <div className="flow" aria-hidden="true">
+              <span>Montessori foundation</span>
+              <span className="flow__arrow">↓</span>
+              <span>Holistic, real-world experiences</span>
+              <span className="flow__arrow">↓</span>
+              <span className="flow__end">Curiosity · Independence · Understanding</span>
+            </div>
+            <div className="hero__actions">
+              <Link to="/curriculum" className="btn btn--ghost">
+                How we teach
+              </Link>
+              <Link to="/about" className="btn btn--ghost">
+                Our story
+              </Link>
+            </div>
           </div>
           <div className="home-welcome__aside" data-aos="fade-up" data-aos-delay="100">
             <div className="callout">
@@ -130,13 +182,14 @@ const HomePage = () => {
       {/* ---------- Ratio band ---------- */}
       <section className="section ratio-band">
         <div className="wrap ratio-band__inner" data-aos="zoom-in">
-          <div className="ratio-band__big">7<span>:</span>1</div>
+          <div className="ratio-band__big">~7<span>:</span>1</div>
           <div>
-            <h2 className="mt-0">Seven children to one adult</h2>
+            <h2 className="mt-0">About seven children to each teacher</h2>
             <p>
-              Many preschools run at fifteen to one or higher. Our ratio means a guide can give an
-              individual lesson, notice the child who is struggling, and let deep concentration run its
-              course. It is the quiet engine behind everything else we do.
+              Many preschools run at fifteen to one or higher. A smaller ratio is not just a number — it
+              means <strong>more individual attention, closer observation, stronger relationships and a
+              deeper understanding of each child</strong>. It is the quiet engine behind everything else
+              we do.
             </p>
             <Link to="/curriculum#ratio" className="btn btn--sunny">
               Why the ratio matters
@@ -257,14 +310,14 @@ const HomePage = () => {
           <div className="home-vol__art" aria-hidden="true">🌏</div>
           <div>
             <span className="eyebrow">Get involved</span>
-            <h2 className="mt-0">Volunteers from around the world</h2>
+            <h2 className="mt-0">Come learn, contribute &amp; experience Sri Lanka</h2>
             <p>
-              We host international Montessori volunteers all year, and we are always on the lookout for
-              AMI-trained guides and assistants. If you'd like to spend a few weeks — or a career — in our
-              classrooms, we'd love to hear from you.
+              We host international Montessori volunteers all year — a chance to work alongside our
+              educators, connect with the children and become part of the Rainbow Kids community. We are
+              also always on the lookout for AMI-trained guides and assistants.
             </p>
             <Link to="/get-involved" className="btn">
-              Volunteering & careers
+              Volunteer with Rainbow Kids
             </Link>
           </div>
         </div>

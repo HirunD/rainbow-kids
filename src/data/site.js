@@ -6,10 +6,15 @@
 export const site = {
   name: "Rainbow Kids Montessori",
   shortName: "Rainbow Kids",
-  tagline: "25 years of AMI Montessori, held together by a 7-to-1 ratio.",
-  established: 2001, // DUMMY — confirm founding year
+  tagline:
+    "Montessori at the foundation. The world as the classroom. 25 years of AMI Montessori and holistic learning.",
+  established: 2002, // 25th anniversary falls on 18 Feb 2027 — confirm exact founding date
   yearsBadge: 25,
   ratio: "7:1",
+
+  // 25th anniversary — the brief asks for this to be built in from the start
+  anniversaryISO: "2027-02-18",
+  anniversaryLabel: "18 February 2027",
 
   // Contact — DUMMY, replace all
   phone: "+94 11 000 0000",
@@ -41,10 +46,11 @@ export const nav = [
   { to: "/contact", label: "Contact" },
 ];
 
-// Headline numbers shown on the Home + About pages
+// Immediate proof points — shown on the Home + About pages.
+// Framed as the brief asks: the meaning, not just the number.
 export const stats = [
-  { value: "25", label: "Years with families", emoji: "🎂" },
-  { value: "7:1", label: "Children per teacher", emoji: "🧑‍🏫" },
-  { value: "AMI", label: "Trained, not MMI", emoji: "🎓" },
-  { value: "1,500+", label: "Alumni & counting", emoji: "🌈" }, // DUMMY
+  { value: "25+", label: "Years of experience", emoji: "🎂" },
+  { value: "AMI", label: "Montessori — our educational foundation", emoji: "🎓" },
+  { value: "~7:1", label: "Children to each teacher", emoji: "🧑‍🏫" },
+  { value: "Holistic", label: "Learning beyond the classroom", emoji: "🌍" },
 ];
