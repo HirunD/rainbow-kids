@@ -77,7 +77,7 @@ const CurriculumPage = () => (
 
     {/* Method pillars — how we get there */}
     <section className="section section--tint-cream">
-      <Wave color="#fff8ec" flip />
+      <Wave color="var(--bg-butter)" flip />
       <div className="wrap">
         <div className="section-head">
           <span className="eyebrow">How we do it</span>
@@ -95,7 +95,7 @@ const CurriculumPage = () => (
           ))}
         </div>
       </div>
-      <Wave color="#fff8ec" />
+      <Wave color="var(--bg-butter)" />
     </section>
 
     {/* Overview */}

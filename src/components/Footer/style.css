@@ -1,8 +1,14 @@
+/* Bold Forest background — pairs with the green border mark */
 .site-foot {
-  background: var(--lavender-soft);
-  border-top: 1px solid var(--c-line);
-  padding-top: clamp(2.5rem, 6vw, 4rem);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-forest);
+  color: #fff;
+  padding-top: clamp(4.5rem, 12vw, 7.5rem);
   margin-top: auto;
+}
+.site-foot .muted {
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .site-foot__grid {
@@ -13,6 +19,7 @@
 }
 
 .site-foot__col h4 {
+  color: #fff;
   font-size: 1rem;
   margin-bottom: 0.8rem;
 }
@@ -24,11 +31,11 @@
   gap: 0.4rem;
 }
 .site-foot__col a {
-  color: var(--c-ink);
+  color: #fff;
   text-decoration: none;
 }
 .site-foot__col a:hover {
-  color: var(--c-primary);
+  color: var(--brand-yellow);
   text-decoration: underline;
 }
 
@@ -41,9 +48,13 @@
 .site-foot__logo img {
   border-radius: 12px;
 }
+.site-foot__logo img {
+  background: #fff;
+}
 .site-foot__logo strong {
-  font-family: var(--font-head);
-  font-size: 1.05rem;
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 1.4rem;
 }
 
 .site-foot__socials {
@@ -75,9 +86,17 @@
 .site-foot__vol {
   margin-top: 1rem;
 }
+.site-foot .site-foot__vol {
+  --btn-fg: #fff;
+  border-color: #fff;
+}
+.site-foot .site-foot__vol:hover {
+  --btn-bg: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
 
 .site-foot__legal {
-  border-top: 1px solid rgba(58, 58, 74, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
   padding-block: 1.25rem 1.5rem;
   display: flex;
   justify-content: space-between;

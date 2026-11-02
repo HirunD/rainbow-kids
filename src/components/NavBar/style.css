@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 253, 248, 0.85);
+  background: rgba(255, 252, 243, 0.88);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
@@ -24,9 +24,9 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.15rem;
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 1.45rem;
   color: var(--c-ink);
   text-decoration: none;
   line-height: 1;
@@ -37,10 +37,12 @@
 .site-nav__brand small {
   display: block;
   font-size: 0.7rem;
+  font-family: var(--font-body);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--c-primary);
-  font-weight: 600;
+  color: var(--brand-purple);
+  font-weight: 700;
+  margin-top: 0.2rem;
 }
 
 .site-nav__links {
@@ -51,7 +53,7 @@
 
 .site-nav__link {
   font-family: var(--font-head);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 0.95rem;
   color: var(--c-ink);
   padding: 0.5rem 0.7rem;
@@ -61,12 +63,12 @@
   white-space: nowrap;
 }
 .site-nav__link:hover {
-  background: var(--c-primary-tint);
+  background: var(--bg-butter);
   text-decoration: none;
 }
 .site-nav__link.is-active {
   color: var(--c-primary-deep);
-  background: var(--c-primary-tint);
+  background: var(--bg-blush);
 }
 
 .site-nav__cta {
@@ -83,7 +85,7 @@
   width: 44px;
   height: 44px;
   border: 0;
-  background: var(--c-primary-tint);
+  background: var(--bg-butter);
   border-radius: 12px;
   cursor: pointer;
   padding: 0 10px;
@@ -91,7 +93,7 @@
 .site-nav__burger span {
   height: 3px;
   border-radius: 3px;
-  background: var(--c-primary-deep);
+  background: var(--c-ink);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .site-nav__burger.is-open span:nth-child(1) {

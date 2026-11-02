@@ -63,7 +63,7 @@ const BlogPostPage = () => {
       </article>
 
       <section className="section section--tint-cream">
-        <Wave color="#fff8ec" flip />
+        <Wave color="var(--bg-butter)" flip />
         <div className="wrap">
           <h2 className="text-center">Keep reading</h2>
           <div className="grid grid--2" style={{ marginTop: "1.5rem" }}>
@@ -80,7 +80,7 @@ const BlogPostPage = () => {
             ))}
           </div>
         </div>
-        <Wave color="#fff8ec" />
+        <Wave color="var(--bg-butter)" />
       </section>
 
       <CtaBand />

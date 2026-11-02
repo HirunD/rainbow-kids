@@ -3,6 +3,8 @@ import Seo from "../../components/Seo";
 import StatStrip from "../../components/StatStrip";
 import Placeholder from "../../components/Placeholder";
 import Wave from "../../components/Wave";
+import Doodle from "../../components/Doodle";
+import BorderMark from "../../components/BorderMark";
 import CtaBand from "../../components/CtaBand";
 import { site } from "../../data/site";
 import { specials, programmes } from "../../data/content";
@@ -31,15 +33,21 @@ const HomePage = () => {
       />
 
       {/* ---------- Hero ---------- */}
-      <section className="hero">
+      <section className="hero has-doodles">
+        <Doodle type="star" float desk style={{ top: "6%", left: "2%", width: 70 }} />
+        <Doodle type="rainbow" float desk style={{ top: "56%", left: "44%", width: 120 }} />
+
         <div className="wrap hero__inner">
           <div className="hero__copy" data-aos="fade-up">
-            <span className="hero__ribbon">
-              <span aria-hidden="true">🌈</span> Celebrating 25 years · {site.established}–2027
+            <span className="eyebrow">
+              Celebrating 25 years · {site.established}–2027
             </span>
             <h1>
-              25 years of growing <span className="hero__accent">curious minds</span>
+              Curious minds.
+              <br />
+              Kind hearts.
             </h1>
+            <span className="subhead">Growing together for 25 years.</span>
             <p className="hero__lead">
               An <strong>AMI Montessori</strong> education, enriched by real-world experiences that help
               children explore, understand and connect with the world around them.
@@ -57,14 +65,13 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="hero__media" data-aos="fade-up" data-aos-delay="120">
-            <div className="hero__photo hero__photo--main">
-              <Placeholder emoji="🧒" label="A child, deep in concentration" tint="ph--pink" />
+          <div className="hero__media" data-aos="fade-left" data-aos-delay="120">
+            <div className="hero__photo">
+              <Placeholder emoji="🧒" label="A child, deep in concentration" tint="ph--sky" />
+              <BorderMark corner="tr" on="photo" size="clamp(150px, 34%, 270px)" />
             </div>
-            <div className="hero__photo hero__photo--sub">
-              <Placeholder emoji="🌱" label="Learning in the garden" tint="ph--mint" />
-            </div>
-            <span className="hero__media-chip">Real Rainbow Kids photography — coming soon</span>
+            <Doodle type="heart" float style={{ top: "-2%", left: "4%", width: 84 }} />
+            <Doodle type="sun" float style={{ bottom: "-4%", left: "-6%", width: 120 }} />
           </div>
         </div>
 
@@ -87,8 +94,6 @@ const HomePage = () => {
             </span>
           </Link>
         </div>
-
-        <Wave color="var(--c-bg)" />
       </section>
 
       {/* ---------- Stats ---------- */}
@@ -97,16 +102,27 @@ const HomePage = () => {
       </div>
 
       {/* ---------- 25th anniversary ---------- */}
-      <section className="anniv">
-        <div className="wrap anniv__inner" data-aos="fade-up">
-          <div>
-            <strong>25 Years. Thousands of little stories.</strong>
-            <span className="muted">
-              {" "}
-              Our 25th anniversary — {site.anniversaryLabel}
-              {daysToAnniversary > 0 ? ` · ${daysToAnniversary} days to go` : ""}
-            </span>
-          </div>
+      <section className="section anniv has-doodles">
+        <Doodle type="arcs" float style={{ top: "12%", left: "4%", width: 110, rotate: "-90deg" }} />
+        <Doodle type="sun" float desk style={{ top: "8%", left: "20%", width: 120 }} />
+        <Doodle type="heart" float style={{ bottom: "10%", left: "6%", width: 100 }} />
+        <Doodle type="rainbow" float desk style={{ top: "10%", right: "16%", width: 150 }} />
+        <Doodle type="star" float style={{ top: "14%", right: "4%", width: 72 }} />
+        <Doodle type="sun" float desk style={{ bottom: "14%", right: "8%", width: 100 }} />
+
+        <div className="wrap anniv__inner text-center" data-aos="fade-up">
+          <img className="anniv__logo" src="/logo-25.png" alt="Rainbow Kids — 25 years" width="140" height="146" />
+          <h2>
+            25 Years of
+            <br />
+            Rainbow Kids
+          </h2>
+          <span className="subhead">25 Years of Painting the Future</span>
+          <p className="muted anniv__lead">
+            Celebrating childhood and Montessori learning since {site.established}. Our 25th anniversary is on{" "}
+            {site.anniversaryLabel}
+            {daysToAnniversary > 0 ? ` — ${daysToAnniversary} days to go` : ""}.
+          </p>
           <Link to="/about#story" className="btn btn--ghost">
             The Rainbow Kids story
           </Link>
@@ -164,7 +180,7 @@ const HomePage = () => {
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">What makes us special</span>
-            <h2>Six things you'll notice on day one</h2>
+            <h2 className="t-berry">Six things you'll notice on day one</h2>
           </div>
           <div className="grid grid--3">
             {specials.map((s, i) => (
@@ -181,19 +197,23 @@ const HomePage = () => {
 
       {/* ---------- Ratio band ---------- */}
       <section className="section ratio-band">
-        <div className="wrap ratio-band__inner" data-aos="zoom-in">
-          <div className="ratio-band__big">~7<span>:</span>1</div>
-          <div>
-            <h2 className="mt-0">About seven children to each teacher</h2>
-            <p>
-              Many preschools run at fifteen to one or higher. A smaller ratio is not just a number — it
-              means <strong>more individual attention, closer observation, stronger relationships and a
-              deeper understanding of each child</strong>. It is the quiet engine behind everything else
-              we do.
-            </p>
-            <Link to="/curriculum#ratio" className="btn btn--sunny">
-              Why the ratio matters
-            </Link>
+        <div className="wrap" data-aos="zoom-in">
+          <div className="ratio-band__inner">
+            <BorderMark corner="tr" on="ocean" size="clamp(110px, 18%, 190px)" />
+            <Doodle type="sun" style={{ bottom: "-30px", left: "-24px", width: 110 }} />
+            <div className="ratio-band__big">~7<span>:</span>1</div>
+            <div className="ratio-band__copy">
+              <h2 className="mt-0 t-white">About seven children to each teacher</h2>
+              <p>
+                Many preschools run at fifteen to one or higher. A smaller ratio is not just a number — it
+                means <strong>more individual attention, closer observation, stronger relationships and a
+                deeper understanding of each child</strong>. It is the quiet engine behind everything else
+                we do.
+              </p>
+              <Link to="/curriculum#ratio" className="btn btn--sunny">
+                Why the ratio matters
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -204,7 +224,7 @@ const HomePage = () => {
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">Age groups</span>
-            <h2>A place for every age from 16 months to 6</h2>
+            <h2 className="t-ocean">A place for every age from 16 months to 6</h2>
           </div>
           <div className="grid grid--4">
             {programmes.map((p, i) => (
@@ -259,11 +279,11 @@ const HomePage = () => {
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">Gallery & reels</span>
-            <h2>Straight from the classroom</h2>
+            <h2 className="t-berry">Straight from the classroom</h2>
           </div>
           <div className="home-reels">
             {["🐒", "🐄", "🎨", "🦚", "☀️"].map((emoji, i) => (
-              <Placeholder key={i} emoji={emoji} tint={["ph--mint", "ph--sun", "ph--pink", "ph--lav", "ph--sky"][i % 5]} reel />
+              <Placeholder key={i} emoji={emoji} tint={["ph--mint", "ph--sun", "ph--pink", "ph--peach", "ph--sky"][i % 5]} reel />
             ))}
           </div>
           <div className="text-center" style={{ marginTop: "2rem" }}>
@@ -305,12 +325,14 @@ const HomePage = () => {
       </section>
 
       {/* ---------- Volunteer teaser ---------- */}
-      <section className="section section--tint-cream">
+      <section className="section section--tint-cream has-doodles">
+        <Doodle type="blob-sky" style={{ top: "-30px", right: "-20px", width: 160 }} />
+        <Doodle type="squiggle" desk style={{ bottom: "12%", right: "10%", width: 110 }} />
         <div className="wrap home-vol" data-aos="fade-up">
           <div className="home-vol__art" aria-hidden="true">🌏</div>
           <div>
             <span className="eyebrow">Get involved</span>
-            <h2 className="mt-0">Come learn, contribute &amp; experience Sri Lanka</h2>
+            <h2 className="mt-0 t-ocean">Come learn, contribute &amp; experience Sri Lanka</h2>
             <p>
               We host international Montessori volunteers all year — a chance to work alongside our
               educators, connect with the children and become part of the Rainbow Kids community. We are

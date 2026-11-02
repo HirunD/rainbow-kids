@@ -1,47 +1,98 @@
 @import "animate.css";
 
+/* Brand title face — Latin subset of Childos Arabic (Namela Studio). Glyphs the
+   font lacks fall through to Quicksand. The DEMO cut has no punctuation, and its
+   digits/symbols are "personal use only" watermarks, so those are stripped. */
+@font-face {
+  font-family: "Childos Arabic";
+  src:
+    url("/fonts/ChildosArabic.woff2") format("woff2"),
+    url("/fonts/ChildosArabic.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ==========================================================================
    Rainbow Kids Montessori — design system
-   Pastel, playful, child-centred. Everything is driven by tokens below so
-   the palette and spacing can be re-skinned in one place.
+   Follows the 25-year brand guidelines: six full-strength rainbow colours,
+   soft/bold background pairs, hand-drawn doodles on a warm cream page, and a
+   three-font type system (Title / Sub-Bold / Sub-normal).
    ========================================================================== */
 
 :root {
-  /* Pastel palette (pulled from the school's Instagram feel) */
-  --pink: #ffb5c7;
-  --pink-soft: #ffe1e9;
-  --peach: #ffd4b3;
-  --yellow: #ffe6a0;
-  --mint: #b9e6c9;
-  --mint-soft: #e2f5e9;
-  --sky: #a9dbf2;
-  --sky-soft: #e2f2fb;
-  --lavender: #d8c8f2;
-  --lavender-soft: #efe8fb;
-  --coral: #ff9e80;
+  /* "Our Colors" — use at full strength, never tinted or faded */
+  --brand-yellow: #fbda2e;
+  --brand-green: #54af56;
+  --brand-orange: #f48522;
+  --brand-blue: #29a1d6;
+  --brand-purple: #8953a5;
+  --brand-red: #fe5450;
+
+  /* Soft backgrounds (each pairs with a border-mark colour — see BorderMark) */
+  --bg-butter: #fff1c2;
+  --bg-mint: #dcf0dc;
+  --bg-peach: #ffe0c7;
+  --bg-sky: #d3ecf8;
+  --bg-lavender: #e8dcf1;
+  --bg-blush: #ffdcdb;
+
+  /* Bold backgrounds */
+  --bg-forest: #354d45;
+  --bg-ocean: #1f6f96;
+  --bg-plum: #5b3470;
+
+  /* Hand-drawn doodle colours (from the brand shape set) */
+  --doodle-sun: #fcc12d;
+  --doodle-heart: #fa6b5f;
+  --doodle-sky: #a9d3f5;
+  --doodle-pink: #f6b4b1;
+  --doodle-lilac: #d9c6ee;
+  --doodle-sage: #7fa28a;
+  --doodle-moss: #3f6650;
+
+  /* Title gradients */
+  --grad-sunset: linear-gradient(90deg, #ff3b30 0%, #ff8a4c 100%);
+  --grad-berry: linear-gradient(90deg, #fe5450 0%, #c64fb5 50%, #8f55f5 100%);
+  --grad-ocean: linear-gradient(90deg, #1b45b0 0%, #7a5bd6 60%, #c66fe6 100%);
+
+  /* Legacy aliases — older page styles reference these */
+  --pink: var(--bg-blush);
+  --pink-soft: var(--bg-blush);
+  --peach: var(--bg-peach);
+  --yellow: var(--bg-butter);
+  --mint: var(--bg-mint);
+  --mint-soft: var(--bg-mint);
+  --sky: var(--bg-sky);
+  --sky-soft: var(--bg-sky);
+  --lavender: var(--bg-lavender);
+  --lavender-soft: var(--bg-lavender);
+  --coral: var(--brand-red);
 
   /* Semantic */
-  --c-bg: #fffdf8;
+  --c-bg: #fffcf3;
   --c-surface: #ffffff;
-  --c-ink: #3a3a4a;
-  --c-ink-soft: #6b6b7b;
-  --c-line: #f0e9df;
+  --c-ink: #2e2a3a;
+  --c-ink-soft: #5e5b66;
+  --c-line: #f1eadb;
 
-  --c-primary: #c9468a;        /* berry — used for primary buttons/links, AA on white */
-  --c-primary-deep: #a5306e;
-  --c-primary-tint: #fbe6f1;
+  --c-primary: var(--brand-red);
+  --c-primary-deep: #c93734; /* text-on-light only, where brand red misses AA */
+  --c-primary-tint: var(--bg-blush);
+  --c-subhead: #9db740; /* olive-green sub-headline seen across the guideline layouts */
 
-  /* Type */
-  --font-head: "Fredoka", "Trebuchet MS", sans-serif;
-  --font-body: "Nunito", "Segoe UI", system-ui, sans-serif;
+  /* Type: Title / Sub-Bold / Sub-normal */
+  --font-title: "Childos Arabic", "Quicksand", "Trebuchet MS", sans-serif;
+  --font-head: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Quicksand", "Segoe UI", system-ui, sans-serif;
 
   /* Shape & depth */
   --radius: 18px;
   --radius-lg: 32px;
   --radius-pill: 999px;
-  --shadow-sm: 0 4px 14px rgba(58, 58, 74, 0.08);
-  --shadow-md: 0 14px 40px rgba(58, 58, 74, 0.12);
-  --shadow-lg: 0 24px 60px rgba(58, 58, 74, 0.16);
+  --shadow-sm: 0 4px 14px rgba(46, 42, 58, 0.07);
+  --shadow-md: 0 14px 40px rgba(46, 42, 58, 0.1);
+  --shadow-lg: 0 24px 60px rgba(46, 42, 58, 0.14);
 
   /* Layout */
   --wrap: 1140px;
@@ -60,9 +111,10 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
+  font-weight: 500;
   color: var(--c-ink);
   background: var(--c-bg);
-  line-height: 1.65;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -73,32 +125,93 @@ img {
 }
 
 a {
-  color: var(--c-primary);
+  color: var(--c-primary-deep);
   text-decoration: none;
 }
 a:hover {
   text-decoration: underline;
 }
 
+strong {
+  font-weight: 700;
+}
+
+/* Titles use the hand-lettered face with a gradient fill; h3/h4 use Sub-Bold. */
 h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-head);
-  font-weight: 600;
   line-height: 1.15;
   color: var(--c-ink);
   margin: 0 0 0.5em;
 }
 
+h1,
+h2 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1.05;
+  width: fit-content;
+  max-width: 100%;
+  background: var(--grad-sunset);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-bottom: 0.08em; /* keeps descenders inside the clipped gradient */
+  text-wrap: balance;
+}
+
+h3,
+h4 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
 h1 {
-  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
 }
 h2 {
-  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  font-size: clamp(2.1rem, 4.8vw, 3.3rem);
 }
 h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-size: clamp(1.2rem, 2.3vw, 1.45rem);
+}
+
+/* Title gradient variants */
+.t-sunset {
+  background-image: var(--grad-sunset);
+}
+.t-berry {
+  background-image: var(--grad-berry);
+}
+.t-ocean {
+  background-image: var(--grad-ocean);
+}
+.t-white {
+  background: none;
+  color: #fff;
+}
+
+/* Sub-Bold headline that sits under a title */
+.subhead {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.6vw, 1.85rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--c-subhead);
+  margin: 0 0 1rem;
+}
+.subhead--sky {
+  color: var(--brand-blue);
+}
+.subhead--red {
+  color: var(--brand-red);
 }
 
 p {
@@ -111,7 +224,7 @@ ul {
 }
 
 :focus-visible {
-  outline: 3px solid var(--c-primary);
+  outline: 3px solid var(--brand-blue);
   outline-offset: 2px;
   border-radius: 6px;
 }
@@ -127,48 +240,61 @@ ul {
 }
 
 .section {
+  position: relative;
   padding-block: var(--section-y);
 }
 
 .section--tint-pink {
-  background: var(--pink-soft);
+  background: var(--bg-blush);
 }
 .section--tint-mint {
-  background: var(--mint-soft);
+  background: var(--bg-mint);
 }
 .section--tint-sky {
-  background: var(--sky-soft);
+  background: var(--bg-sky);
 }
 .section--tint-lav {
-  background: var(--lavender-soft);
+  background: var(--bg-lavender);
 }
 .section--tint-cream {
-  background: #fff8ec;
+  background: var(--bg-butter);
 }
 
 .section-head {
   text-align: center;
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto clamp(2rem, 5vw, 3.25rem);
+}
+.section-head h2 {
+  margin-inline: auto;
 }
 .section-head p {
   color: var(--c-ink-soft);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   margin: 0;
 }
 
 .eyebrow {
   display: inline-block;
-  font-family: var(--font-head);
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 0.78rem;
-  color: var(--c-primary);
-  background: var(--c-primary-tint);
-  padding: 0.35rem 0.9rem;
-  border-radius: var(--radius-pill);
-  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: var(--c-ink);
+  margin-bottom: 0.75rem;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.4em;
+  height: 0.7em;
+  margin-right: 0.5em;
+  vertical-align: -0.02em;
+  background:
+    radial-gradient(circle at 50% 100%, transparent 38%, var(--brand-green) 39% 52%, transparent 53%),
+    radial-gradient(circle at 50% 100%, transparent 54%, var(--brand-yellow) 55% 68%, transparent 69%),
+    radial-gradient(circle at 50% 100%, transparent 70%, var(--brand-red) 71% 84%, transparent 85%);
 }
 
 .grid {
@@ -188,19 +314,23 @@ ul {
 .text-center {
   text-align: center;
 }
+.text-center h1,
+.text-center h2 {
+  margin-inline: auto;
+}
 
 /* --------------------------------------------------------------------------
    Buttons
    -------------------------------------------------------------------------- */
 .btn {
-  --btn-bg: var(--c-primary);
+  --btn-bg: var(--brand-red);
   --btn-fg: #fff;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-family: var(--font-head);
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 1.05rem;
   padding: 0.8rem 1.6rem;
   border-radius: var(--radius-pill);
   background: var(--btn-bg);
@@ -208,28 +338,30 @@ ul {
   border: 2px solid transparent;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 6px 0 rgba(46, 42, 58, 0.12);
   text-decoration: none;
 }
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 0 rgba(46, 42, 58, 0.12);
   text-decoration: none;
 }
 .btn:active {
-  transform: translateY(0);
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(46, 42, 58, 0.12);
 }
 .btn--ghost {
   --btn-bg: transparent;
-  --btn-fg: var(--c-primary);
-  border-color: var(--c-primary);
+  --btn-fg: var(--c-ink);
+  border-color: var(--c-ink);
   box-shadow: none;
 }
 .btn--ghost:hover {
-  --btn-bg: var(--c-primary-tint);
+  --btn-bg: var(--bg-butter);
+  box-shadow: none;
 }
 .btn--sunny {
-  --btn-bg: var(--yellow);
+  --btn-bg: var(--brand-yellow);
   --btn-fg: var(--c-ink);
 }
 .btn--wa {
@@ -238,7 +370,7 @@ ul {
 }
 .btn--lg {
   padding: 1rem 2rem;
-  font-size: 1.1rem;
+  font-size: 1.12rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -262,9 +394,10 @@ ul {
   gap: 0.4rem;
   padding: 0.3rem 0.85rem;
   border-radius: var(--radius-pill);
+  font-family: var(--font-head);
   font-size: 0.82rem;
   font-weight: 700;
-  background: var(--sky-soft);
+  background: var(--bg-sky);
   color: var(--c-ink);
 }
 
@@ -276,11 +409,11 @@ ul {
 
 /* Filter chips (events, gallery) */
 .chip {
-  border: 1px solid var(--c-line);
+  border: 2px solid var(--c-line);
   background: var(--c-surface);
   color: var(--c-ink);
   font-family: var(--font-head);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 0.9rem;
   padding: 0.45rem 1rem;
   border-radius: var(--radius-pill);
@@ -291,21 +424,39 @@ ul {
   transform: translateY(-1px);
 }
 .chip--on {
-  background: var(--c-primary);
+  background: var(--c-ink);
   color: #fff;
-  border-color: var(--c-primary);
+  border-color: var(--c-ink);
 }
 
-/* Emoji badge used across feature cards */
+/* Emoji badge used across feature cards — cycles through the soft backgrounds */
 .badge {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   display: grid;
   place-items: center;
-  font-size: 1.8rem;
-  border-radius: 20px;
-  background: var(--lavender-soft);
+  font-size: 1.9rem;
+  border-radius: 46% 54% 42% 58% / 55% 45% 55% 45%;
+  background: var(--bg-lavender);
   margin-bottom: 1rem;
+}
+.grid > :nth-child(6n + 1) .badge {
+  background: var(--bg-butter);
+}
+.grid > :nth-child(6n + 2) .badge {
+  background: var(--bg-mint);
+}
+.grid > :nth-child(6n + 3) .badge {
+  background: var(--bg-peach);
+}
+.grid > :nth-child(6n + 4) .badge {
+  background: var(--bg-sky);
+}
+.grid > :nth-child(6n + 5) .badge {
+  background: var(--bg-lavender);
+}
+.grid > :nth-child(6n + 6) .badge {
+  background: var(--bg-blush);
 }
 
 /* --------------------------------------------------------------------------
@@ -318,6 +469,110 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
+   Hand-drawn doodles (see components/Doodle.jsx). Scatter them loosely around
+   the edges; keep them away from faces and text.
+   -------------------------------------------------------------------------- */
+.doodle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  height: auto;
+}
+.doodle--float {
+  animation: doodle-float 7s ease-in-out infinite;
+}
+.doodle--float:nth-of-type(2n) {
+  animation-duration: 9s;
+  animation-delay: -3s;
+}
+@keyframes doodle-float {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 -8px;
+    rotate: 4deg;
+  }
+}
+.has-doodles {
+  position: relative;
+  overflow: hidden;
+}
+.has-doodles > .wrap {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 700px) {
+  .doodle--desk {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Border mark — curved corner + 25-year logo (see components/BorderMark.jsx)
+   -------------------------------------------------------------------------- */
+.bmark {
+  position: absolute;
+  z-index: 3;
+  width: var(--bmark-size, clamp(140px, 22%, 260px));
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+.bmark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.bmark--tr {
+  top: 0;
+  right: 0;
+}
+.bmark--tl {
+  top: 0;
+  left: 0;
+}
+.bmark--br {
+  bottom: 0;
+  right: 0;
+}
+.bmark--bl {
+  bottom: 0;
+  left: 0;
+}
+.bmark--tl svg {
+  transform: scaleX(-1);
+}
+.bmark--br svg {
+  transform: scaleY(-1);
+}
+.bmark--bl svg {
+  transform: scale(-1, -1);
+}
+.bmark__logo {
+  position: absolute;
+  width: 32%;
+  height: auto;
+}
+.bmark--tr .bmark__logo {
+  top: 7%;
+  right: 7%;
+}
+.bmark--tl .bmark__logo {
+  top: 7%;
+  left: 7%;
+}
+.bmark--br .bmark__logo {
+  bottom: 7%;
+  right: 7%;
+}
+.bmark--bl .bmark__logo {
+  bottom: 7%;
+  left: 7%;
+}
+
+/* --------------------------------------------------------------------------
    Image / media placeholders (swap for real photos — see QUESTIONNAIRE.md)
    -------------------------------------------------------------------------- */
 .ph {
@@ -325,15 +580,14 @@ ul {
   display: grid;
   place-items: center;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--sky) 0%, var(--lavender) 50%, var(--pink) 100%);
-  color: #fff;
+  background: var(--bg-sky);
+  color: var(--c-ink);
   font-family: var(--font-head);
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   padding: 1rem;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
 }
 .ph::after {
   content: "📷 placeholder";
@@ -343,28 +597,35 @@ ul {
   font-size: 0.7rem;
   font-family: var(--font-body);
   font-weight: 700;
-  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
   padding: 0.15rem 0.5rem;
   border-radius: var(--radius-pill);
 }
 .ph--pink {
-  background: linear-gradient(135deg, var(--pink), var(--peach));
+  background: var(--bg-blush);
 }
 .ph--mint {
-  background: linear-gradient(135deg, var(--mint), var(--sky));
+  background: var(--bg-mint);
 }
 .ph--sun {
-  background: linear-gradient(135deg, var(--yellow), var(--coral));
+  background: var(--bg-butter);
 }
 .ph--lav {
-  background: linear-gradient(135deg, var(--lavender), var(--sky));
+  background: var(--bg-lavender);
+}
+.ph--sky {
+  background: var(--bg-sky);
+}
+.ph--peach {
+  background: var(--bg-peach);
 }
 .ph--reel {
   aspect-ratio: 9 / 16;
 }
 .ph__emoji {
   font-size: clamp(2.5rem, 8vw, 4rem);
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
 }
 
 /* --------------------------------------------------------------------------

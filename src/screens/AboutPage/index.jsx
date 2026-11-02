@@ -33,7 +33,7 @@ const AboutPage = () => (
 
     {/* Our story / timeline */}
     <section className="section section--tint-cream" id="story">
-      <Wave color="#fff8ec" flip />
+      <Wave color="var(--bg-butter)" flip />
       <div className="wrap">
         <div className="section-head">
           <span className="eyebrow">Our story</span>
@@ -55,7 +55,7 @@ const AboutPage = () => (
           ))}
         </ol>
       </div>
-      <Wave color="#fff8ec" />
+      <Wave color="var(--bg-butter)" />
     </section>
 
     {/* Principal's message */}

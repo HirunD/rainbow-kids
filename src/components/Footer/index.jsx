@@ -1,9 +1,11 @@
 import { Link } from "react-router";
 import { nav, site } from "../../data/site";
+import BorderMark from "../BorderMark";
 import "./style.css";
 
 const Footer = () => (
   <footer className="site-foot">
+    <BorderMark corner="tr" on="forest" size="clamp(110px, 14vw, 170px)" />
     <div className="wrap site-foot__grid">
       <div className="site-foot__col site-foot__brand">
         <div className="site-foot__logo">

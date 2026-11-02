@@ -1,45 +1,22 @@
 /* ---------- Hero ---------- */
 .hero {
-  position: relative;
-  background:
-    radial-gradient(1100px 520px at 82% -8%, var(--peach) 0%, transparent 60%),
-    radial-gradient(900px 500px at 0% 8%, var(--mint-soft) 0%, transparent 55%),
-    linear-gradient(180deg, #fff6ee 0%, var(--c-bg) 90%);
-  padding-top: clamp(1.75rem, 5vw, 3.25rem);
+  padding-top: clamp(2rem, 5vw, 3.5rem);
 }
 .hero__inner {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(2rem, 6vw, 4.5rem);
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
   padding-bottom: clamp(2rem, 5vw, 3.25rem);
 }
 .hero__inner h1 {
-  font-size: clamp(2.3rem, 5.4vw, 3.7rem);
-  letter-spacing: -0.01em;
-}
-.hero__accent {
-  color: var(--c-primary);
-}
-.hero__ribbon {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-head);
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--c-primary-deep);
-  background: #fff;
-  border: 1px solid var(--c-line);
-  padding: 0.4rem 0.95rem;
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 1.1rem;
+  font-size: clamp(2.9rem, 7vw, 5.2rem);
+  margin-bottom: 0.3em;
 }
 .hero__lead {
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   max-width: 48ch;
-  color: var(--c-ink);
+  color: var(--c-ink-soft);
 }
 .hero__actions {
   display: flex;
@@ -52,46 +29,26 @@
   font-weight: 600;
 }
 
-/* Editorial stacked photos instead of a grid of tiles */
+/* Photo bleeds off the right edge with a soft wavy left side, as in the
+   "Curious minds. Kind hearts." layout. Border mark sits in its top corner. */
 .hero__media {
   position: relative;
-  padding: 0 1.5rem 2.25rem 0;
+  align-self: stretch;
+  min-height: clamp(380px, 46vw, 560px);
 }
 .hero__photo {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 6px solid #fff;
+  position: absolute;
+  inset: 0 calc((min(100vw, var(--wrap)) - 100vw) / 2 - var(--gutter)) 0 0;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M22 0H100V100H14C4 86 16 70 9 54C2 38 24 22 22 0Z'/%3E%3C/svg%3E") 0 0 / 100% 100%;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M22 0H100V100H14C4 86 16 70 9 54C2 38 24 22 22 0Z'/%3E%3C/svg%3E") 0 0 / 100% 100%;
 }
 .hero__photo .ph {
-  aspect-ratio: 4 / 5;
+  height: 100%;
+  aspect-ratio: auto;
   border-radius: 0;
-  box-shadow: none;
 }
-.hero__photo--main {
-  rotate: -2deg;
-}
-.hero__photo--sub {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 48%;
-  rotate: 4deg;
-}
-.hero__photo--sub .ph {
-  aspect-ratio: 1;
-}
-.hero__media-chip {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--c-ink-soft);
-  background: #fff;
-  border: 1px solid var(--c-line);
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-pill);
+.hero__media .doodle {
+  z-index: 4;
 }
 
 /* Two-audience paths */
@@ -128,30 +85,31 @@
 }
 
 .home-stats {
-  margin-top: clamp(-2.5rem, -4vw, -1.5rem);
-  margin-bottom: 1rem;
+  margin-block: 0.5rem 1rem;
   position: relative;
   z-index: 5;
 }
 
-/* ---------- 25th anniversary strip ---------- */
+/* ---------- 25th anniversary band ---------- */
 .anniv {
-  padding-block: 1rem clamp(1.5rem, 4vw, 2.5rem);
+  padding-block: clamp(4rem, 10vw, 7rem);
 }
 .anniv__inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(120deg, var(--lavender-soft), var(--pink-soft));
-  border: 1px solid var(--c-line);
-  border-radius: var(--radius-lg);
-  padding: 1rem 1.5rem;
+  max-width: 760px;
 }
-.anniv__inner strong {
-  font-family: var(--font-head);
+.anniv__logo {
+  width: clamp(96px, 14vw, 140px);
+  height: auto;
+  margin: 0 auto 1rem;
+}
+.anniv__inner h2 {
+  font-size: clamp(2.6rem, 7vw, 4.8rem);
+  margin-bottom: 0.25em;
+}
+.anniv__lead {
   font-size: 1.1rem;
+  max-width: 52ch;
+  margin: 0 auto 1.5rem;
 }
 
 /* ---------- Foundation → experiences → outcomes flow ---------- */
@@ -193,25 +151,35 @@
   padding: clamp(1.25rem, 3vw, 1.75rem);
 }
 
-/* ---------- Ratio band ---------- */
+/* ---------- Ratio band (bold Ocean background + yellow border mark) ---------- */
 .ratio-band__inner {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: clamp(1.5rem, 5vw, 3rem);
   align-items: center;
-  background: var(--lavender-soft);
+  background: var(--bg-ocean);
+  color: #fff;
   border-radius: var(--radius-lg);
-  padding: clamp(1.75rem, 5vw, 3rem);
+  padding: clamp(2rem, 6vw, 3.5rem);
+  padding-right: clamp(2rem, 14vw, 11rem);
 }
 .ratio-band__big {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: clamp(4rem, 14vw, 8rem);
-  color: var(--c-primary);
+  position: relative;
+  font-family: var(--font-title);
+  font-size: clamp(4.5rem, 15vw, 9rem);
+  color: var(--brand-yellow);
   line-height: 1;
 }
 .ratio-band__big span {
-  color: var(--sky);
+  color: #fff;
+}
+.ratio-band__copy {
+  position: relative;
+}
+.ratio-band__copy p {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ---------- Programme cards ---------- */
@@ -256,7 +224,7 @@
   flex-direction: column;
 }
 .review-card__stars {
-  color: #f5b301;
+  color: var(--doodle-sun);
   font-size: 1.1rem;
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
@@ -315,13 +283,16 @@
   .ratio-band__inner {
     text-align: center;
   }
-  .home-stats {
-    margin-top: -1.5rem;
-  }
   .hero__media {
-    max-width: 460px;
-    margin-inline: auto;
-    padding-bottom: 3rem;
+    min-height: clamp(300px, 80vw, 460px);
+    margin-inline: calc(-1 * var(--gutter));
+  }
+  .hero__photo {
+    inset: 0;
+  }
+  .ratio-band__inner {
+    padding-right: clamp(2rem, 6vw, 3.5rem);
+    padding-top: clamp(5rem, 20vw, 7rem);
   }
 }
 @media (max-width: 560px) {
@@ -330,9 +301,6 @@
   }
   .blog-mini__media {
     aspect-ratio: 16 / 9;
-  }
-  .hero__photo--sub {
-    width: 52%;
   }
   .flow > span:not(.flow__arrow) {
     font-size: 0.9rem;

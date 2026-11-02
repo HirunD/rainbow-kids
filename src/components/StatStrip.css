@@ -22,15 +22,23 @@
 }
 
 .statstrip__value {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  color: var(--c-primary);
+  font-family: var(--font-title);
+  font-size: clamp(2.1rem, 4.5vw, 3rem);
+  color: var(--brand-red);
   line-height: 1.1;
+}
+.statstrip__item:nth-child(4n + 2) .statstrip__value {
+  color: var(--brand-orange);
+}
+.statstrip__item:nth-child(4n + 3) .statstrip__value {
+  color: var(--brand-green);
+}
+.statstrip__item:nth-child(4n + 4) .statstrip__value {
+  color: var(--brand-purple);
 }
 
 .statstrip__label {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--c-ink-soft);
-  font-weight: 700;
+  font-weight: 600;
 }

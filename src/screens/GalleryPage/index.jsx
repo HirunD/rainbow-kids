@@ -84,7 +84,7 @@ const GalleryPage = () => {
 
       {/* Photo grid */}
       <section className="section section--tint-cream">
-        <Wave color="#fff8ec" flip />
+        <Wave color="var(--bg-butter)" flip />
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">Photos</span>
@@ -103,7 +103,7 @@ const GalleryPage = () => {
             ))}
           </div>
         </div>
-        <Wave color="#fff8ec" />
+        <Wave color="var(--bg-butter)" />
       </section>
 
       <CtaBand

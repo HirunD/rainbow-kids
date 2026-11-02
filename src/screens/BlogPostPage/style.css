@@ -13,7 +13,7 @@
   background: linear-gradient(180deg, var(--sky-soft), var(--c-bg));
 }
 .post__hero.page-hero--sun {
-  background: linear-gradient(180deg, #fff3d6, var(--c-bg));
+  background: linear-gradient(180deg, var(--bg-butter), var(--c-bg));
 }
 .post__hero-inner {
   max-width: 720px;
@@ -39,9 +39,15 @@
   padding-block: clamp(1.5rem, 5vw, 3rem);
   font-size: 1.08rem;
 }
+/* Long-form reading: Sub-Bold headings, not the display title face */
 .post__body h2 {
   margin-top: 2rem;
+  font-family: var(--font-head);
+  font-weight: 700;
   font-size: 1.5rem;
+  line-height: 1.25;
+  background: none;
+  color: var(--c-ink);
 }
 .post__disclaimer {
   margin-top: 2.5rem;
